@@ -1,0 +1,27 @@
+{
+  "name": "irr",
+  "version": "1.0.0",
+  "description": "Incrementally load Redux reducers into a single store",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tazsingh/incremental-redux-reducers.git"
+  },
+  "main": "dist/index.js",
+  "jsnext/main": "src/index.js",
+  "scripts": {
+    "prepublish": "npm run clean && npm run build",
+    "clean": "rimraf dist",
+    "build": "babel src --out-dir dist"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.4.5",
+    "babel-core": "^6.4.5",
+    "babel-preset-es2015": "^6.3.13",
+    "rimraf": "^2.4.3"
+  },
+  "peerDependencies": {
+    "redux": ">= 3.0.0"
+  },
+  "author": "Tasveer Singh",
+  "license": "MIT"
+}
