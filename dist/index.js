@@ -12,9 +12,9 @@ var _addReducer = require("./addReducer");
 
 var _addReducer2 = _interopRequireDefault(_addReducer);
 
-var _setup = require("./setup");
+var _setupIncrementalReduxReducers = require("./setupIncrementalReduxReducers");
 
-var _setup2 = _interopRequireDefault(_setup);
+var _setupIncrementalReduxReducers2 = _interopRequireDefault(_setupIncrementalReduxReducers);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23,5 +23,5 @@ module.exports = {
   reducerStore: _reducerStore2.default,
   mapReducersToProps: _mapReducersToProps2.default,
   addReducer: _addReducer2.default,
-  setup: _setup2.default
+  setupIncrementalReduxReducers: _setupIncrementalReduxReducers2.default
 };
