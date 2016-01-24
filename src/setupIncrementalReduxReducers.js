@@ -1,10 +1,18 @@
 import {combineReducers} from "redux";
 import reducerStore from "./reducerStore";
 
-export default function setupIncrementalReduxReducers(reduxStore) {
-  reducerStore.subscribe(() => {
-    let reducerMap = reducerStore.getState();
+const updateStoreWithReducerMapping = (store) => {
+  let reducerMap = reducerStore.getState();
 
-    reduxStore.replaceReducer(combineReducers(reducerMap));
+  store.replaceReducer(combineReducers(reducerMap));
+}
+
+export default function setupIncrementalReduxReducers(reduxStore) {
+  // initialize store
+  updateStoreWithReducerMapping(reduxStore);
+
+  // respond to async reducers being added
+  reducerStore.subscribe(() => {
+    updateStoreWithReducerMapping(reduxStore);
   })
 }
