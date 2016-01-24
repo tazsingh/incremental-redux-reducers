@@ -13,10 +13,18 @@ var _reducerStore2 = _interopRequireDefault(_reducerStore);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function setupIncrementalReduxReducers(reduxStore) {
-  _reducerStore2.default.subscribe(function () {
-    var reducerMap = _reducerStore2.default.getState();
+var updateStoreWithReducerMapping = function updateStoreWithReducerMapping(store) {
+  var reducerMap = _reducerStore2.default.getState();
 
-    reduxStore.replaceReducer((0, _redux.combineReducers)(reducerMap));
+  store.replaceReducer((0, _redux.combineReducers)(reducerMap));
+};
+
+function setupIncrementalReduxReducers(reduxStore) {
+  // initialize store
+  updateStoreWithReducerMapping(reduxStore);
+
+  // respond to async reducers being added
+  _reducerStore2.default.subscribe(function () {
+    updateStoreWithReducerMapping(reduxStore);
   });
 }
