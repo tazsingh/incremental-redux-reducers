@@ -1,5 +1,5 @@
 {
-  "name": "irr",
+  "name": "incremental-redux-reducers",
   "version": "1.0.0",
   "description": "Incrementally load Redux reducers into a single store",
   "repository": {
